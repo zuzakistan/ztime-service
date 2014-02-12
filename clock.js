@@ -48,7 +48,7 @@ function getClock(tz, offset) {
 		clock.append(c[t]);
 	});
 	var utcname = 'UTC'+((offset>=0)?"+":"-")+Math.abs(offset);
-	var label = $('<div title="+utcname'+'" class="clock-label"><span class="tzname">'+tz+'</div>');
+	var label = $('<div title="'+utcname+'" class="clock-label"><span class="tzname">'+tz+'</div>');
 	label.append('<span class="tz-time">'+utcname+'</span>');
 	box.append(label);
 	c.offset = offset;
@@ -62,7 +62,7 @@ function tickClocks() {
 	var secondhandticktime = 0.9;
 	for(c in clocks) {
 		var tmin = D.getUTCMinutes()/60 + D.getUTCSeconds()/60/60;
-		var thours = (D.getUTCHours()+clocks[c].offset)/12 + tmin/60;
+		var thours = (D.getUTCHours()+clocks[c].offset)/12 + (D.getUTCMinutes()/60)/12;
 		var tseconds = D.getSeconds(); 
 		var tmsc = D.getUTCMilliseconds()/1000;
 		if(tmsc > secondhandticktime) {
@@ -81,11 +81,21 @@ function tickClocks() {
 
 $(document).ready(function(){
 	var ckls = $('.clocks');
+	var tzs = {0:["UTC"]};
 	$.getJSON("http://cabinetoffice.gsi.zuzakistan.com/timezones.json", function(data) {
 		for(tz in data) {
-			ckls.append(getClock(tz, -data[tz]));
+			if(tzs[-data[tz]]) {
+				tzs[-data[tz]].push(tz);
+			}
+			else {
+				tzs[-data[tz]] = [tz];
+			}
+		}
+		for(var t in tzs) {
+			if(tzs[t].length > 0) {
+				ckls.append(getClock(tzs[t].join(' '), parseInt(t)));
+			}
 		}
 	});
-	ckls.append(getClock("UTC", 0));
 	requestAnimationFrame(tickClocks);
 });
