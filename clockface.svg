@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100px" height="100px" version="1.1"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <desc>Clock Face</desc>
+
+  <defs>
+  <g id="minutemark">
+    <rect x="49px" y="2px" width="2px" height="5px"/>
+  </g>
+  <g id="5minutemark">
+    <rect x="49px" y="2px" width="2px" height="10px"/>
+  </g>
+  <g id="5minseg">
+    <use transform="rotate(6, 50, 50)" xlink:href="#minutemark"/>
+    <use transform="rotate(12, 50, 50)" xlink:href="#minutemark"/>
+    <use transform="rotate(18, 50, 50)" xlink:href="#minutemark"/>
+    <use transform="rotate(24, 50, 50)" xlink:href="#minutemark"/>
+    <use transform="rotate(30, 50, 50)" xlink:href="#5minutemark"/>
+  </g>
+  <g id="quadrant">
+    <rect x="49px" y="2px" width="2px" height="15px"/>
+    <use transform="rotate(0, 50, 50)" xlink:href="#5minseg"/>
+    <use transform="rotate(30, 50, 50)" xlink:href="#5minseg"/>
+    <use transform="rotate(60, 50, 50)" xlink:href="#5minseg"/>
+  </g>
+  </defs>
+ 
+  <use transform="rotate(  0, 50, 50)" xlink:href="#quadrant"/>
+  <use transform="rotate( 90, 50, 50)" xlink:href="#quadrant"/>
+  <use transform="rotate(180, 50, 50)" xlink:href="#quadrant"/>
+  <use transform="rotate(270, 50, 50)" xlink:href="#quadrant"/>
+</svg>
