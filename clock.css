@@ -84,3 +84,9 @@ body {
 	box-shadow: 0 0 9px #444;
 	margin-left: -75%;
 }
+
+.tz-time {
+	font-size: 0.5em;
+	display: block;
+	color: #666;
+}

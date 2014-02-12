@@ -47,8 +47,9 @@ function getClock(tz, offset) {
 		c[t] = ClockHand(t);
 		clock.append(c[t]);
 	});
-	var label = $('<div title="UTC'+((offset>=0)?"+":"-")+offset+'" class="clock-label">');
-	label.text(tz);
+	var utcname = 'UTC'+((offset>=0)?"+":"-")+Math.abs(offset);
+	var label = $('<div title="+utcname'+'" class="clock-label"><span class="tzname">'+tz+'</div>');
+	label.append('<span class="tz-time">'+utcname+'</span>');
 	box.append(label);
 	c.offset = offset;
 	c.tz = tz;
