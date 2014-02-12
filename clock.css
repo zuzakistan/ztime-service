@@ -58,6 +58,7 @@ body {
 }
 
 .clock-hand {
+	box-shadow: 0 0 4px #444;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -69,19 +70,18 @@ body {
 .clock-hand.hours {
 	background: #000;
 	width: 100px;
-	box-shadow: 0 0 3px #111;
+	height: 8px;
+	margin-top: -4px;
 }
 
 .clock-hand.minutes {
 	background: #000;
 	width: 170px;
-	box-shadow: 0 0 6px #222;
 }
 
 .clock-hand.seconds {
 	background: #D00;
 	width: 195px;
-	box-shadow: 0 0 9px #444;
 	margin-left: -75%;
 	margin-top: -2px;
 	height: 4px;
