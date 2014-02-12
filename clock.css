@@ -83,6 +83,8 @@ body {
 	width: 195px;
 	box-shadow: 0 0 9px #444;
 	margin-left: -75%;
+	margin-top: -2px;
+	height: 4px;
 }
 
 .tz-time {
