@@ -84,11 +84,11 @@ $(document).ready(function(){
 	var tzs = {0:["UTC"]};
 	$.getJSON("http://cabinetoffice.gsi.zuzakistan.com/timezones.json", function(data) {
 		for(tz in data) {
-			if(tzs[-data[tz]]) {
-				tzs[-data[tz]].push(tz);
+			if(tzs[data[tz]]) {
+				tzs[data[tz]].push(tz);
 			}
 			else {
-				tzs[-data[tz]] = [tz];
+				tzs[data[tz]] = [tz];
 			}
 		}
 		for(var t in tzs) {

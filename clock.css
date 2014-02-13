@@ -50,7 +50,7 @@ body {
 
 .clock-rot.hours { 
 	-webkit-transform: rotate(-90deg);
-	box-shadow: 0 0 3px #111;
+	box-shadow: 0 0 2px #111;
 }
 
 .clock-rot.minutes { 
@@ -58,7 +58,7 @@ body {
 }
 
 .clock-hand {
-	box-shadow: 0 0 4px #444;
+	box-shadow: 0 0 2px #444;
 	position: absolute;
 	left: 50%;
 	top: 50%;
