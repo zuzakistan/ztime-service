@@ -10,14 +10,14 @@ body {
 }
 
 .clock-box {
-	width: 400px;
+	width: 300px;
 	display: inline-block;
 	margin: 50px;
 }
 
 .clock {
-	height: 400px;
-	width: 400px;
+	height: 300px;
+	width: 300px;
 	position: relative;
 	background: #FFF;
 	border-radius: 50%;
@@ -40,7 +40,7 @@ body {
 .clock-rot {
 	position: absolute;
 	border-radius: 50%;
-	left: 200px;
+	left: 150px;
 	top: 50%;
 	margin: -3% 0 0 -3%;
 	width: 6%;
@@ -69,19 +69,19 @@ body {
 
 .clock-hand.hours {
 	background: #000;
-	width: 100px;
+	width: 75px;
 	height: 8px;
 	margin-top: -4px;
 }
 
 .clock-hand.minutes {
 	background: #000;
-	width: 170px;
+	width: 110px;
 }
 
 .clock-hand.seconds {
 	background: #D00;
-	width: 195px;
+	width: 150px;
 	margin-left: -75%;
 	margin-top: -2px;
 	height: 4px;
