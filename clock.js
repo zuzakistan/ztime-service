@@ -60,6 +60,7 @@ function getClock(tz, offset) {
 function tickClocks() {
 	var D = new Date();
 	var secondhandticktime = 0.9;
+	var overstep = 1.25;
 	for(c in clocks) {
 		var tmin = D.getUTCMinutes()/60 + D.getUTCSeconds()/60/60;
 		var thours = (D.getUTCHours()+clocks[c].offset)/12 + (D.getUTCMinutes()/60)/12;
@@ -67,7 +68,7 @@ function tickClocks() {
 		var tmsc = D.getUTCMilliseconds()/1000;
 		if(tmsc > secondhandticktime) {
 			var d = tmsc-secondhandticktime;
-			tseconds += (d) + (Math.sin((d/(1-secondhandticktime))*1.57075) * 1.5);
+			tseconds += (d) + (Math.sin((d/(1-secondhandticktime))*1.57075) * overstep);
 		}
 		tseconds /= 60;
 		['', '-webkit-', '-moz-'].forEach(function(ua){
