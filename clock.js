@@ -81,17 +81,18 @@ function tickClocks() {
 
 $(document).ready(function(){
 	var ckls = $('.clocks');
-	var tzs = {0:["UTC"]};
-	$.getJSON("http://cabinetoffice.gsi.zuzakistan.com/timezones.json", function(data) {
-		for(tz in data) {
-			if(tzs[data[tz]]) {
-				tzs[data[tz]].push(tz);
-			}
-			else {
-				tzs[data[tz]] = [tz];
-			}
+	var tzs = {};
+	for(var i = -12; i <= 12; ++i) {
+		tzs[i] = [];
+	}
+	tzs[0] = ["UTC"];
+	$.getJSON("http://cabinetoffice.gsi.zuzakistan.com/census.json", function(data) {
+		var dz = data.denizens;
+		for(d in dz) {
+			var tz = parseInt(dz[d].offset);
+			tzs[tz].push(d);
 		}
-		for(var t in tzs) {
+		for(var t = -12; t <= 12; ++t) {
 			if(tzs[t].length > 0) {
 				ckls.append(getClock(tzs[t].join(' '), parseInt(t)));
 			}
